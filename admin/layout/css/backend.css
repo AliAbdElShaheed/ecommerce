@@ -1,0 +1,311 @@
+/******** Strat Main Rules ************/
+
+body {
+
+	background-color: #F4F4F4;
+}
+
+h1{
+
+	margin: 30px 0;
+	font-weight: bold;
+	color: #666;
+}
+
+/******** End Main Rules ************/
+
+
+
+
+
+
+/******** Strat Lonig Form ************/
+
+.login {
+
+	width: 25%;
+	margin: 180px auto;
+
+}
+
+.login h4 {
+
+	color: #888;
+}
+
+.login input {
+
+	margin-bottom: 10px;
+}
+
+.login .form-control {
+
+	background-color: #EAEAEA;
+}
+
+.login .btn {
+
+	background-color: #008dde;
+}
+
+/******** End Lonig Form ************/
+
+
+
+
+
+
+
+
+/******** Start nav Sittings ************/
+
+.fixed-top{
+
+	position: absolute;
+}
+
+.dropdown-menu  > a:hover {
+	background-color: #408bdc;
+
+}
+
+/******** End nav Sittings ************/
+
+
+
+
+
+
+
+
+/******** Start Dashboard page  && Manage Member Page	************/
+
+.stat-father .stat {
+	/*border: 1px solid #ccc;*/
+	background-color: #eee;
+	padding: 20px;
+	border-radius: 10px;
+	background-color: #408bdc;
+	color: #fff;
+	border :solid 1px #236d9e !important;
+
+
+
+}
+
+.stat-father .stat:hover {
+	background-color: #236d9e;
+}	
+
+
+.stat-father .stat a {
+	color: #fff;
+
+}
+
+.stat-father .stat .st-panding a {
+
+	color: #b12121;
+}
+
+.stat-father .st-panding a {
+
+	color: #b12121;
+}
+
+.stat-father .stat .st-admin a {
+
+	color: #0d6324;
+}
+
+.stat-father .st-admin a {
+
+	color: #6ed68a;
+}
+
+
+.stat-father .stat a:hover {
+	text-decoration: none;
+	color: #ccc;
+
+}
+
+
+
+.stat-father .stat span {
+	display: block;
+	font-size: 50px;
+	font-weight: bold;
+
+
+}
+
+
+
+
+
+.latest {
+
+	margin-top: 30px; 
+}
+
+.card-header {
+
+	background-color: #2e649e;
+}
+
+
+/******** End Dashboard page && Manage Member Page	************/
+
+
+
+
+
+
+
+
+/********  Manage Categories Page	************/
+
+.categotries .card-header {
+
+	color: #fff;
+	font-size: large;
+}
+
+
+.categotries .cat:last-of-type ~ hr {
+
+	display: none;
+
+}
+
+.categotries .cat span {
+
+	background-color: #736c6c;
+	color: #fff;
+	padding: 4px 6px;
+	margin-right: 6px;
+	border-radius: 6px;
+}
+
+.categotries .cat .btn-cat {
+
+	float: right;
+	margin-right: 5px;
+}
+
+.categotries .card-header span {
+
+	float: right;
+}
+
+.categotries .card-header .ordering a:hover {
+
+	text-decoration: none;
+}
+
+.categotries .card-header .ordering a:hover {
+
+	text-decoration: none;
+}
+
+.categotries .card-header .ordering .active {
+
+	color: #fff;
+	font-weight: bold;
+}
+/********  Manage Categories Page	************/
+
+
+
+
+
+
+
+
+
+
+
+
+/******** Start Manage page ************/
+
+.main-table {
+	-webkit-box-shadow: 0 3px 10px #ccc;
+	-moz-box-shadow: 0 3px 10px #ccc;
+	box-shadow: 0 3px 10px #ccc; 
+
+	margin-bottom: 20px;
+}
+
+
+		/*td .btn-success The Same of the Below*/ 
+td >a {
+
+    min-width: 75px;
+    margin-right: 10px;
+}
+tbody td,th {
+
+	background-color: #fff;
+	vertical-align: middle !important;
+}
+
+/******** End Manage page ************/
+
+
+
+
+
+
+
+
+
+
+/******** Start Edit row page ************/
+
+.col-sm-6 .btn {
+margin-left: 175px;
+min-width: 120px;
+
+}
+/******** End Edit row page ************/
+
+
+
+/********--------------********* Start of Items pages ********--------------*********/
+
+/******** Start Add Items page ************/
+
+.items {
+
+	color: #23578c;
+}
+
+
+.col-md-1 p {
+
+	position: relative;
+    margin-top: -2px;
+    top: 9px;
+    font-weight: bold;
+}
+
+.custom-file {
+
+	margin-left: 205px;
+	max-width: 350px;
+}
+
+/******** Start Add Items page ************/
+
+/******** Start Add Items page ************/
+
+.item .btn-primary {
+
+	margin-top: 3px;
+}
+/******** Start Add Items page ************/
+
+
+
+/********--------------********* End of Items pages ********--------------*********/
