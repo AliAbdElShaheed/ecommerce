@@ -8,30 +8,46 @@
 
 	// echo $_SERVER['PHP_SELF'];
 
-	$status = "";
+	$status = "$table.Status != 2";
 
 	// Condition To Get Panding Comments or Approved Comments 
 
 	
 
-	if (isset($_GET['status']) && $_GET['status'] == 'panding') {
+	if (isset($_GET['status']) && $_GET['status'] == 'pending') {
 
-		$status = "Status = 0";
+		$status = "$table.Status = 0";
 
 	} elseif (isset($_GET['status']) && $_GET['status'] == 'approved') {
 	
 
-		$status = "Status = 1";
+		$status = "$table.Status = 1";
 	}
 				
 	//Select All comments 
-	$stmt = $con->prepare("SELECT * FROM $table WHERE $status");
+	$stmt3 = $con->prepare("SELECT
+								$table.*,
+								items.Name AS Item,
+								users.Fullname AS Member
+							FROM
+								$table
+							INNER JOIN
+								items
+							ON
+								$table.Item_ID = items.ItemID
+							INNER JOIN
+								users
+							ON
+								$table.User_ID = users.UserID
+							WHERE
+								$status
+							");
 
 	//Execute The Statement
-	$stmt->execute();
+	$stmt3->execute();
 
 	//Assign To Variable
-	$rows = $stmt->fetchAll();
+	$comments = $stmt3->fetchAll();
 
 ?>
 
@@ -46,8 +62,8 @@
 					<th scope="col">Comment</th>
 					<th scope="col">Status</th>
 					<th scope="col">Add_Date</th>
-					<th scope="col">User_ID</th>
-					<th scope="col">Item_ID</th>
+					<th scope="col">Member</th>
+					<th scope="col">Item</th>
 					<th scope="col">Control</th>
 
 				</tr>
@@ -55,22 +71,32 @@
 			<tbody>
 			<?php
 
-				foreach ($rows as $row) {
+				foreach ($comments as $comment) {
 					echo "<tr>";
-						echo "<th scope='row'>" . $row['CommentID'] . "</th>";
-						echo "<td>" . $row['Comment'] . "</td>";
-						echo "<td>" . $row['Status'] . "</td>";
-						echo "<td>" . $row['Add_Date'] . "</td>";
-						echo "<td>" . $row['User_ID'] . "</td>";
-						echo "<td>" . $row['Item_ID'] . "</td>";
+						echo "<th scope='row'>" . $comment['CommentID'] . "</th>";
+						echo "<td>" . $comment['Comment'] . "</td>";
 						echo "<td>";
 
-							echo "<a class='btn btn-success' href=" . "$_SERVER[PHP_SELF]?page=comments&sub=edit&userid=$row[UserID]" . "><i class='fas fa-user-edit'></i> Edit</a>";
-							echo "<a class='btn btn-danger confirm' href=" . "$_SERVER[PHP_SELF]?page=users&sub=delete&userid=$row[UserID]" . "><i class='fas fa-user-times'></i>". " " . "Delete</a>";
+							if ($comment['Status'] == 0){
+								echo "<p class='text-danger'>Not Approved Yet</p>";
 
-							if ($row['Regstatus'] == 0) {
+							} else {
 
-								echo "<a class='btn btn-primary' href=" . "$_SERVER[PHP_SELF]?page=users&sub=activate&userid=$row[UserID]" . "><i class='fas fa-user-check'></i>". " " . "Activate</a>";
+								echo "<p class='text-success'>Approved & Published</p>";
+							}
+							
+						echo "</td>";
+						echo "<td>" . $comment['Add_Date'] . "</td>";
+						echo "<td>" . $comment['Member'] . "</td>";
+						echo "<td>" . $comment['Item'] . "</td>";
+						echo "<td>";
+
+							echo "<a class='btn btn-success' href=" . "$_SERVER[PHP_SELF]?page=comments&sub=edit&commentid=$comment[CommentID]" . "><i class='fas fa-user-edit'></i> Edit</a>";
+							echo "<a class='btn btn-danger confirm' href=" . "$_SERVER[PHP_SELF]?page=comments&sub=delete&commentid=$comment[CommentID]" . "><i class='fas fa-user-times'></i>". " " . "Delete</a>";
+
+							if ($comment['Status'] == 0) {
+
+								echo "<a class='btn btn-primary' href=" . "$_SERVER[PHP_SELF]?page=comments&sub=activate&commentid=$comment[CommentID]" . "><i class='fas fa-user-check'></i>". " " . "Activate</a>";
 							}
 
 						echo "</td>";

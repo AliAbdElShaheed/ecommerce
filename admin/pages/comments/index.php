@@ -50,14 +50,14 @@
 
 
 
-		if ($_GET["sub"] == "manage")					// /// ///// //////    Redirect To Manage Members Page
+		if ($_GET["sub"] == "manage")					// /// ///// //////    Redirect To Manage Comments Page
 			{
 				include_once ("manage.php");
 			}
 			
 			
 
-		elseif ($_GET["sub"] == "add")					// /// ///// //////    Redirect To Add & Insert Member Page
+		elseif ($_GET["sub"] == "add")					// /// ///// //////    Redirect To Add & Insert Comments Page
 			{
 				include_once ("add_member.php");
 			}
@@ -77,7 +77,7 @@
 
 			
 			
-		elseif ($_GET["sub"] == "activate")				// /// ///// //////    Redirect To Activate User Page
+		elseif ($_GET["sub"] == "activate")				// /// ///// //////    Redirect To approve Comments Page
 			{
 				include_once ("activate_user.php");
 			}
