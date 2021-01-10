@@ -91,12 +91,12 @@
 						echo "<td>" . $comment['Item'] . "</td>";
 						echo "<td>";
 
-							echo "<a class='btn btn-success' href=" . "$_SERVER[PHP_SELF]?page=comments&sub=edit&commentid=$comment[CommentID]" . "><i class='fas fa-user-edit'></i> Edit</a>";
-							echo "<a class='btn btn-danger confirm' href=" . "$_SERVER[PHP_SELF]?page=comments&sub=delete&commentid=$comment[CommentID]" . "><i class='fas fa-user-times'></i>". " " . "Delete</a>";
+							echo "<a class='btn btn-success' href=" . "$_SERVER[PHP_SELF]?page=comments&sub=edit&commentid=$comment[CommentID]" . "><i class='fas fa-edit'></i> Edit</a>";
+							echo "<a class='btn btn-danger confirm' href=" . "$_SERVER[PHP_SELF]?page=comments&sub=delete&commentid=$comment[CommentID]" . "><i class='far fa-trash-alt'></i>". " " . "Delete</a>";
 
 							if ($comment['Status'] == 0) {
 
-								echo "<a class='btn btn-primary' href=" . "$_SERVER[PHP_SELF]?page=comments&sub=activate&commentid=$comment[CommentID]" . "><i class='fas fa-user-check'></i>". " " . "Activate</a>";
+								echo "<a class='btn btn-primary' href=" . "$_SERVER[PHP_SELF]?page=comments&sub=approve&commentid=$comment[CommentID]" . "><i class='fas fa-thumbs-up'></i>". " " . "Approve</a>";
 							}
 
 						echo "</td>";

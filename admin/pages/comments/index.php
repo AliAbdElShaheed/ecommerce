@@ -59,53 +59,27 @@
 
 		elseif ($_GET["sub"] == "add")					// /// ///// //////    Redirect To Add & Insert Comments Page
 			{
-				include_once ("add_member.php");
+				include_once ("add_comment.php");
 			}
 			
 			
 		elseif ($_GET["sub"] == "edit")					// /// ///// //////    Redirect To Edit & Update Page
 			{
-				include_once ("edit_row.php");
+				include_once ("edit_comment.php");
 			}
 
 
 
 		elseif ($_GET["sub"] == "delete")				// /// ///// //////    Redirect To Delete Page
 			{
-				include_once ("delete_row.php");
+				include_once ("delete_comment.php");
 			}
 
 			
 			
-		elseif ($_GET["sub"] == "activate")				// /// ///// //////    Redirect To approve Comments Page
+		elseif ($_GET["sub"] == "approve")				// /// ///// //////    Redirect To approve Comments Page
 			{
-				include_once ("activate_user.php");
-			}
-
-			
-			
-
-		elseif ($_GET["sub"] == "forget_password")
-			{
-				include_once ("forget_password.php");
-			}
-			
-			
-		elseif ($_GET["sub"] == "reset_password")
-			{
-				include_once ("reset_password.php");
-			}
-			
-				
-		elseif ($_GET["sub"] == "login")
-			{
-				include_once ("login.php");
-			}
-			
-			
-		elseif ($_GET["sub"] == "register")
-			{
-				include_once ("register.php");
+				include_once ("approve_comment.php");
 			}
 			
 			
