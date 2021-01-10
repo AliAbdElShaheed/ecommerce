@@ -217,7 +217,100 @@
 			<!-- End Save Buttom -->									
 			</form>
 		<?php
-		}		
+		}
+
+
+	//Select Item Comments 
+	$stmt3 = $con->prepare("SELECT
+								comments.*,
+								
+								users.Fullname AS Member
+							FROM
+								comments
+
+							INNER JOIN
+								users
+							ON
+								comments.User_ID = users.UserID
+							WHERE
+								Item_ID = ?
+							");
+
+	//Execute The Statement
+	$stmt3->execute(array($gettedid));
+
+	//Assign To Variable
+	$comments = $stmt3->fetchAll();
+
+	if (empty($comments)) {
+
+		echo "<h1 class='text-center'> ". "[" .  $row['Name'] ."]" . "Donot Have Any Comments" ."</h1>";
+
+
+	}else {
+
+
+
+?>
+
+		<h1 class='text-center'>Manage [<?php echo $row['Name'] ?>] Comments</h1>
+
+		<div class="table-responsive ">
+
+			<table class="table table-bordered text-center main-table">
+				<thead class="thead-dark">
+					<tr>
+						<th scope="col">Comment</th>
+						<th scope="col">Status</th>
+						<th scope="col">Add_Date</th>
+						<th scope="col">Member</th>
+						<th scope="col">Control</th>
+
+					</tr>
+				</thead>
+				<tbody>
+				<?php
+
+					foreach ($comments as $comment) {
+						echo "<tr>";
+							echo "<td>" . $comment['Comment'] . "</td>";
+							echo "<td>";
+
+								if ($comment['Status'] == 0){
+									echo "<p class='text-danger'>Not Approved Yet</p>";
+
+								} else {
+
+									echo "<p class='text-success'>Approved & Published</p>";
+								}
+								
+							echo "</td>";
+							echo "<td>" . $comment['Add_Date'] . "</td>";
+							echo "<td>" . $comment['Member'] . "</td>";
+							echo "<td>";
+
+								echo "<a class='btn btn-success' href=" . "$_SERVER[PHP_SELF]?page=comments&sub=edit&commentid=$comment[CommentID]" . "><i class='fas fa-edit'></i> Edit</a>";
+								echo "<a class='btn btn-danger confirm' href=" . "$_SERVER[PHP_SELF]?page=comments&sub=delete&commentid=$comment[CommentID]" . "><i class='far fa-trash-alt'></i>". " " . "Delete</a>";
+
+								if ($comment['Status'] == 0) {
+
+									echo "<a class='btn btn-primary' href=" . "$_SERVER[PHP_SELF]?page=comments&sub=approve&commentid=$comment[CommentID]" . "><i class='fas fa-thumbs-up'></i>". " " . "Approve</a>";
+								}
+
+							echo "</td>";
+						echo "</tr>";
+
+					}
+
+
+				?>
+				
+				</tbody>				
+			</table>
+		</div>
+
+	<?php
+	}		
 	}
 	?>
 

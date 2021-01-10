@@ -12,17 +12,24 @@
 		    <div class="col-sm ">
 		    	<div class="stat border border-info">
 		      		Total Members
-		      		<span><a href='<?php echo "$_SERVER[PHP_SELF]?page=users&sub=manage"; ?>' ><?php echo countRows('UserID', 'users'); ?></a></span>
+		      		<span><a href='<?php echo "$_SERVER[PHP_SELF]?page=users"; ?>' ><?php echo countRows('UserID', 'users'); ?></a></span>
 		      	</div>
 		    </div>
 
-		    <div class="col-sm">
+<!-- 		    <div class="col-sm">
 		    	<div class="stat border border-info ">
 		      		Panding Members
-		      		<span class="st-panding"><a href='<?php echo "$_SERVER[PHP_SELF]?page=users&sub=manage&pending=pending"; ?>' ><?php echo countRowsPro('UserID', 'users', 'Regstatus', 0); ?></a></span>
+		      		<span class="st-panding"><a href='<?php // echo "$_SERVER[PHP_SELF]?page=users&sub=manage&pending=pending"; ?>' ><?php // echo countRowsPro('UserID', 'users', 'Regstatus', 0); ?></a></span>
+		      	</div>
+		    </div> -->
+		    
+		    <div class="col-sm">
+		    	<div class="stat border border-info ">
+		      		Categories
+		      		<span><a href='<?php echo "$_SERVER[PHP_SELF]?page=categories"; ?>' ><?php echo countRows('CatID', 'categories'); ?></a></span>
 		      	</div>
 		    </div>
-		    
+
 		    <div class="col-sm">
 		    	<div class="stat border border-info">
 		      		Total Items
@@ -33,7 +40,7 @@
 		    <div class="col-sm">
 		    	<div class="stat border border-info">
 		      		Total Comments
-		      		<span><a href='<?php echo "$_SERVER[PHP_SELF]?page=users"; ?>' >0</a></span>
+		      		<span><a href='<?php echo "$_SERVER[PHP_SELF]?page=comments"; ?>' ><?php echo countRows('CommentID', 'comments'); ?></a></span>
 		      	</div>
 		    </div>
 
